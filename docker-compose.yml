@@ -1,0 +1,10 @@
+services:
+  reviewer:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      AWS_REGION: ${AWS_REGION:-ap-south-1}
+      STALE_DAYS: ${STALE_DAYS:-90}
+    volumes:
+      - ${HOME}/.aws:/home/app/.aws:ro
